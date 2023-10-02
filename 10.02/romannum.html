@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test Suite</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.20.0.css">
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-2.20.0.js"></script>
+</body>
+
+<script>
+  function num(n) {
+    output = "";
+	
+	while (n >= 1000) {
+		output += 'M';
+		n = n - 1000;
+	}
+	if (n < 1000 && n >= 900) {
+		output += 'CM';
+		n = n - 900;
+	}
+	while (n >= 500) {
+		output += 'D';
+		n = n - 500;
+	}
+	if (n < 500 && n >= 400) {
+		output += 'CD';
+		n = n - 400;
+	}
+	while (n >= 100) {
+		output += 'C';
+		n = n - 100;
+	}
+	if (n < 100 && n >= 90) {
+		output += 'XC';
+		n = n - 90;
+	}
+	while (n >= 50) {
+		output += 'L';
+		n = n - 50;
+	}
+	if (n < 50 && n >= 40) {
+		output += 'XL';
+		n = n - 40;
+	}
+	while (n >= 10) {
+		output += 'X';
+		n = n - 10;
+	}
+	if (n == 9) {
+		output += 'IX';
+		n = n - 9;
+	}
+	while (n >= 5) {
+		output += 'V';
+		n = n - 5;
+	}
+	if (n == 4) {
+		output += 'IV';
+		n = n - 4;
+	}
+	while (n >= 1) {
+		output += 'I';
+		n--;
+	}
+	
+	convert(n, output, 'C', 100);
+	
+	convert(n, output, 'L', 50);
+	
+	convert(n, output, 'X', 10);
+	
+	convert(n, output, 'V', 5);
+	
+	convert(n, output, 'I', 1);
+	
+	return output;
+  }
+  
+  function convert(n, output, str, x) {
+	while (n >= x) {
+		output += str;
+		n = n - x;
+	}
+	return n;
+  }
+
+  QUnit.module('num', function() {
+    QUnit.test('number: 1', function(assert) {
+      assert.equal(num(1), 'I');
+    });
+	
+	QUnit.test('number: 2', function(assert) {
+      assert.equal(num(2), 'II');
+    });
+	
+	QUnit.test('number: 3', function(assert) {
+      assert.equal(num(3), 'III');
+    });
+	
+	QUnit.test('number: 4', function(assert) {
+      assert.equal(num(4), 'IV');
+    });
+	
+	QUnit.test('number: 5', function(assert) {
+      assert.equal(num(5), 'V');
+    });
+	
+	QUnit.test('number: 5', function(assert) {
+      assert.equal(num(6), 'VI');
+    });
+	
+	QUnit.test('number: 19', function(assert) {
+      assert.equal(num(19), 'XIX');
+    });
+	
+	QUnit.test('number: 32', function(assert) {
+      assert.equal(num(32), 'XXXII');
+    });
+	
+	QUnit.test('number: 42', function(assert) {
+      assert.equal(num(42), 'XLII');
+    });
+	QUnit.test('number: 89', function(assert) {
+      assert.equal(num(89), 'LXXXIX');
+    });
+	
+	QUnit.test('number: 203', function(assert) {
+      assert.equal(num(203), 'CCIII');
+    });
+	
+	QUnit.test('number: 420', function(assert) {
+      assert.equal(num(420), 'CDXX');
+    });
+	
+	QUnit.test('number: 324', function(assert) {
+      assert.equal(num(324), 'CCCXXIV');
+    });
+	
+	QUnit.test('number: 517', function(assert) {
+      assert.equal(num(517), 'DXVII');
+    });
+	
+	QUnit.test('number: 949', function(assert) {
+      assert.equal(num(949), 'CMXLIX');
+    });
+	
+	QUnit.test('number: 949', function(assert) {
+      assert.equal(num(949), 'CMXLIX');
+    });
+	
+	QUnit.test('number: 3459', function(assert) {
+      assert.equal(num(3459), 'MMMCDLIX');
+    });
+  });
+</script>
