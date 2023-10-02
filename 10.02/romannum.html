@@ -67,6 +67,14 @@
 	
 	return output;
   }
+  
+  function convert(n, output, str, x) {
+	while (n >= x) {
+		output += str;
+		n = n - x;
+	}
+	return n;
+  }
 
   QUnit.module('num', function() {
     QUnit.test('number: 1', function(assert) {
@@ -128,12 +136,12 @@
       assert.equal(num(949), 'CMXLIX');
     });
 	
-	QUnit.test('number: 949', function(assert) {
-      assert.equal(num(949), 'CMXLIX');
-    });
-	
 	QUnit.test('number: 3459', function(assert) {
       assert.equal(num(3459), 'MMMCDLIX');
+    });
+	
+	QUnit.test('number: 2351', function(assert) {
+      assert.equal(num(2351), 'MMCCCLI');
     });
   });
 </script>
