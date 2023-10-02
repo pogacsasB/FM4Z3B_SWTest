@@ -60,12 +60,16 @@
 		output += 'IV';
 		n = n - 4;
 	}
-	while (n >= 1) {
-		output += 'I';
-		n--;
-	}
+	traditional(n, 'I', 1);
 	
 	return output;
+  }
+  
+  function traditional(n, str, x) {
+	while (n >= x) {
+		output += str;
+		n = n - x;
+	}
   }
 
   QUnit.module('num', function() {
