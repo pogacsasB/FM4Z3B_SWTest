@@ -65,29 +65,7 @@
 		n--;
 	}
 	
-	convert(n, output, 'M', 1000);
-	
-	convert(n, output, 'D', 500);
-	
-	convert(n, output, 'C', 100);
-	
-	convert(n, output, 'L', 50);
-	
-	convert(n, output, 'X', 10);
-	
-	convert(n, output, 'V', 5);
-	
-	convert(n, output, 'I', 1);
-	
 	return output;
-  }
-  
-  function convert(n, output, str, x) {
-	while (n >= x) {
-		output += str;
-		n = n - x;
-	}
-	return n;
   }
 
   QUnit.module('num', function() {
