@@ -67,14 +67,6 @@
 	
 	return output;
   }
-  
-  function convert(n, output, str, x) {
-	while (n >= x) {
-		output += str;
-		n = n - x;
-	}
-	return n;
-  }
 
   QUnit.module('num', function() {
     QUnit.test('number: 1', function(assert) {
