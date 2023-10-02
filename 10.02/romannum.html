@@ -36,31 +36,22 @@
 		output += 'XC';
 		n = n - 90;
 	}
-	while (n >= 50) {
-		output += 'L';
-		n = n - 50;
-	}
+	n = traditional(n, 'L', 50);
 	if (n < 50 && n >= 40) {
 		output += 'XL';
 		n = n - 40;
 	}
-	while (n >= 10) {
-		output += 'X';
-		n = n - 10;
-	}
+	n = traditional(n, 'X', 10);
 	if (n == 9) {
 		output += 'IX';
 		n = n - 9;
 	}
-	while (n >= 5) {
-		output += 'V';
-		n = n - 5;
-	}
+	n = traditional(n, 'V', 5);
 	if (n == 4) {
 		output += 'IV';
 		n = n - 4;
 	}
-	traditional(n, 'I', 1);
+	n = traditional(n, 'I', 1);
 	
 	return output;
   }
@@ -70,6 +61,7 @@
 		output += str;
 		n = n - x;
 	}
+	return n;
   }
 
   QUnit.module('num', function() {
