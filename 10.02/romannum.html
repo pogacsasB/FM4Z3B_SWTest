@@ -12,45 +12,18 @@
   function num(n) {
     output = "";
 	
-	while (n >= 1000) {
-		output += 'M';
-		n = n - 1000;
-	}
-	if (n < 1000 && n >= 900) {
-		output += 'CM';
-		n = n - 900;
-	}
-	while (n >= 500) {
-		output += 'D';
-		n = n - 500;
-	}
-	if (n < 500 && n >= 400) {
-		output += 'CD';
-		n = n - 400;
-	}
-	while (n >= 100) {
-		output += 'C';
-		n = n - 100;
-	}
-	if (n < 100 && n >= 90) {
-		output += 'XC';
-		n = n - 90;
-	}
+	n = traditional(n, 'M', 1000);
+	n = exception(n, 'CM', 1000, 900);
+	n = traditional(n, 'D', 500);
+	n = exception(n, 'CD', 500, 400);
+	n = traditional(n, 'C', 100);
+	n = exception(n, 'XC', 100, 90);
 	n = traditional(n, 'L', 50);
-	if (n < 50 && n >= 40) {
-		output += 'XL';
-		n = n - 40;
-	}
+	n = exception(n, 'XL', 50, 40);
 	n = traditional(n, 'X', 10);
-	if (n == 9) {
-		output += 'IX';
-		n = n - 9;
-	}
+	n = exception(n, 'IX', 10, 9);
 	n = traditional(n, 'V', 5);
-	if (n == 4) {
-		output += 'IV';
-		n = n - 4;
-	}
+	n = exception(n, 'IV', 5, 4);
 	n = traditional(n, 'I', 1);
 	
 	return output;
@@ -60,6 +33,14 @@
 	while (n >= x) {
 		output += str;
 		n = n - x;
+	}
+	return n;
+  }
+  
+  function exception(n, str, ur, lr) {
+	if (n < ur && n >= lr) {
+		output += str;
+		n = n - lr;
 	}
 	return n;
   }
