@@ -12,6 +12,7 @@
   function num(n) {
     output = "";
 	
+	
 	n = traditional(n, 'C', 100);
 	n = exception(n, 'XC', 100, 90);
 	n = traditional(n, 'L', 50);
@@ -84,6 +85,10 @@
 
 	  QUnit.test('number: 203', function(assert) {
       assert.equal(num(203), 'CCIII');
+    });
+
+	  QUnit.test('number: 420', function(assert) {
+      assert.equal(num(420), 'CDXX');
     });
   });
 </script>
