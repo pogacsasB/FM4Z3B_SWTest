@@ -10,39 +10,91 @@
 
 <script>
   function position(x,y,A) {
-	str = "";
+	direction = "";
 	
 	switch (A) {
 		case "N":
-			str = x + ", " + y + " starting position, looking North";
+			direction = "North";
 			break;
 		case "S":
-			str = x + ", " + y + " starting position, looking South";
+			direction = "South";
 			break;
 		case "W":
-			str = x + ", " + y + " starting position, looking West";
+			direction = "West";
 			break;
 		case "E":
-			str = x + ", " + y + " starting position, looking East";
+			direction = "East";
 			break;
 		default:
-			str = x + ", " + y + " starting position, directon defaulted to North";
+			direction = "No such directon, defaulted to North";
 	}
+	
+	str = "x = " + x + ", y = " + y + " starting position, direction: " + direction;
+	
+	return str;
+  }
+  
+  function move(A) {
+	directon = "";
+	x=0;
+	y=0;
+	
+	switch (A) {
+		case "f":
+			x = x + 1;
+			direction = "foward";
+			break;
+		case "b":
+			x = x - 1;
+			direction = "backward";
+			break;
+		case "l":
+			y = y + 1;
+			direction = "left";
+			break;
+		case "r":
+			y = y - 1;
+			direction = "right";
+			break;
+		default:
+			x = x + 1;
+	}
+	
+	if (x == -1) {
+		x = 8;
+	}
+	if (x == 9) {
+		x = 0;
+	}
+	if (y == -1) {
+		y = 8
+	}
+	if (y == 9) {
+		y = 0
+	}
+	
+	str = "Moving " + direction + ": new coordinates: x = " + x + ", y = " + y;
 	
 	return str;
   }
   
   QUnit.module('position', function() {
     QUnit.test('egy, ketto, Eszak', function(assert) {
-      assert.equal(position(1,2,"N"), "1, 2 starting position, looking North");
+      assert.equal(position(1,2,"N"), "x = 1, y = 2 starting position, direction: North");
     });
 	
 	QUnit.test('harom, tiz, Nyugat', function(assert) {
-      assert.equal(position(3,10,"W"), "3, 10 starting position, looking West");
+      assert.equal(position(3,10,"W"), "x = 3, y = 10 starting position, direction: West");
     });
 	
 	QUnit.test('negy, kilenc, B', function(assert) {
-      assert.equal(position(4,9,"B"), "4, 9 starting position, directon defaulted to North");
+      assert.equal(position(4,9,"B"), "x = 4, y = 9 starting position, direction: No such directon, defaulted to North");
     });
   });
+  
+  QUnit.module('move', function() {
+	QUnit.test('foward', function(assert) {
+      assert.equal(move("f"), "Moving foward: new coordinates: x = 1, y = 0");
+	});
+   });
  </script>
