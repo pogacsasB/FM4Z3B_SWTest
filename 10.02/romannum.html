@@ -12,6 +12,8 @@
   function num(n) {
     output = "";
 	
+	
+	n = exception(n, 'IV', 5, 4);
 	n = traditional(n, 'I', 1);
 	
 	return output;
@@ -21,6 +23,14 @@
 	while (n >= x) {
 		output += str;
 		n = n - x;
+	}
+	return n;
+  }
+
+  function exception(n, str, ur, lr) {
+	if (n < ur && n >= lr) {
+		output += str;
+		n = n - lr;
 	}
 	return n;
   }
