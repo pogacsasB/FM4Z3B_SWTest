@@ -10,12 +10,26 @@
 
 <script>
   function position(x,y,A) {
-	return x + ", " + y + " starting position, looking " + A;
+	str = "";
+	
+	if (A == "N"){
+		str = x + ", " + y + " starting position, looking North";
+	} else if (A == "S"){
+		str = x + ", " + y + " starting position, looking South";
+	} else if (A == "W"){
+		str = x + ", " + y + " starting position, looking West";
+	} else if (A == "E"){
+		str = x + ", " + y + " starting position, looking East";
+	} else {
+		str = x + ", " + y + " starting position, directon defaulted to North";
+	}
+	
+	return str;
   }
   
   QUnit.module('position', function() {
     QUnit.test('egy, ketto, Eszak', function(assert) {
-      assert.equal(position(1,2,"N"), "1, 2 starting position, looking N");
+      assert.equal(position(1,2,"N"), "1, 2 starting position, looking North");
     });
   });
  </script>
