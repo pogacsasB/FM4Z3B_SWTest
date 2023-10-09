@@ -12,7 +12,8 @@
   function num(n) {
     output = "";
 	
-	
+	n = traditional(n, 'D', 500);
+	n = exception(n, 'CD', 500, 400);
 	n = traditional(n, 'C', 100);
 	n = exception(n, 'XC', 100, 90);
 	n = traditional(n, 'L', 50);
