@@ -94,7 +94,11 @@
   
   QUnit.module('move', function() {
 	QUnit.test('foward', function(assert) {
-      assert.equal(move("f"), "Moving foward: new coordinates: x = 1, y = 0");
+      		assert.equal(move("f"), "Moving foward: new coordinates: x = 1, y = 0");
+	});
+
+	QUnit.test('backward', function(assert) {
+      		assert.equal(move("b"), "Moving backward: new coordinates: x = 0, y = 0");
 	});
    });
  </script>
