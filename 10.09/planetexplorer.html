@@ -44,39 +44,19 @@
 	
 	switch (A) {
 		case "f":
-			if (x + 1 == xB) {
-				blocked = 1;
-			}
-			else {
-				x = x + 1;
-			}
+			x = x + 1;
 			direction = "foward";
 			break;
 		case "b":
-			if (x - 1 == xB) {
-				blocked = 1;
-			}
-			else {
-				x = x - 1;
-			}
+			x = x - 1;
 			direction = "backward";
 			break;
 		case "l":
-			if (y + 1 == yB) {
-				blocked = 1;
-			}
-			else {
-				y = y + 1;
-			}
+			y = y + 1;
 			direction = "left";
 			break;
 		case "r":
-			if (y - 1 == yB) {
-				blocked = 1;
-			}
-			else {
-				y = y - 1;
-			}
+			y = y - 1;
 			direction = "right";
 			break;
 		default:
@@ -96,7 +76,11 @@
 		y = 0
 	}
 	
-	if (blocked == 1) {
+	if (x == xB || y == yB) {
+		blocked = 1;
+	}
+	
+	if (blocked != 0) {
 		str = "Moving " + direction + ": road is blocked, coordinates remain: x = " + x + ", y = " + y;
 	} else {
 		str = "Moving " + direction + ": new coordinates: x = " + x + ", y = " + y;
@@ -125,7 +109,7 @@
 	});
 	
 	QUnit.test('backward', function(assert) {
-      assert.equal(move("b"), "Moving backward: new coordinates: x = 0, y = 0");
+      assert.equal(move("b"), "Moving backward: road is blocked, coordinates remain: x = 0, y = 0");
 	});
    });
  </script>
