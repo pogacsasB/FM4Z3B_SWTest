@@ -9,13 +9,13 @@
 </body>
 
 <script>
-  function position(x,y) {
-	return x + y;
+  function position(x,y,A) {
+	return x + ", " + y + " starting position, looking " + A;
   }
   
   QUnit.module('position', function() {
-    QUnit.test('egy, ketto', function(assert) {
-      assert.equal(position(1,2), 3);
+    QUnit.test('egy, ketto, Eszak', function(assert) {
+      assert.equal(position(1,2,"N"), "1, 2 starting position, looking N");
     });
   });
  </script>
