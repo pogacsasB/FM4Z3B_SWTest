@@ -12,16 +12,21 @@
   function position(x,y,A) {
 	str = "";
 	
-	if (A == "N"){
-		str = x + ", " + y + " starting position, looking North";
-	} else if (A == "S"){
-		str = x + ", " + y + " starting position, looking South";
-	} else if (A == "W"){
-		str = x + ", " + y + " starting position, looking West";
-	} else if (A == "E"){
-		str = x + ", " + y + " starting position, looking East";
-	} else {
-		str = x + ", " + y + " starting position, directon defaulted to North";
+	switch (A) {
+		case "N":
+			str = x + ", " + y + " starting position, looking North";
+			break;
+		case "S":
+			str = x + ", " + y + " starting position, looking South";
+			break;
+		case "W":
+			str = x + ", " + y + " starting position, looking West";
+			break;
+		case "E":
+			str = x + ", " + y + " starting position, looking East";
+			break;
+		default:
+			str = x + ", " + y + " starting position, directon defaulted to North";
 	}
 	
 	return str;
@@ -31,11 +36,11 @@
     QUnit.test('egy, ketto, Eszak', function(assert) {
       assert.equal(position(1,2,"N"), "1, 2 starting position, looking North");
     });
-	  
+	
 	QUnit.test('harom, tiz, Nyugat', function(assert) {
       assert.equal(position(3,10,"W"), "3, 10 starting position, looking West");
     });
-
+	
 	QUnit.test('negy, kilenc, B', function(assert) {
       assert.equal(position(4,9,"B"), "4, 9 starting position, directon defaulted to North");
     });
