@@ -36,24 +36,47 @@
   
   function move(A) {
 	directon = "";
+	xB= 8;
+	yB= 0;
+	blocked = 0;
 	x=0;
 	y=0;
 	
 	switch (A) {
 		case "f":
-			x = x + 1;
+			if (x + 1 == xB) {
+				blocked = 1;
+			}
+			else {
+				x = x + 1;
+			}
 			direction = "foward";
 			break;
 		case "b":
-			x = x - 1;
+			if (x - 1 == xB) {
+				blocked = 1;
+			}
+			else {
+				x = x - 1;
+			}
 			direction = "backward";
 			break;
 		case "l":
-			y = y + 1;
+			if (y + 1 == yB) {
+				blocked = 1;
+			}
+			else {
+				y = y + 1;
+			}
 			direction = "left";
 			break;
 		case "r":
-			y = y - 1;
+			if (y - 1 == yB) {
+				blocked = 1;
+			}
+			else {
+				y = y - 1;
+			}
 			direction = "right";
 			break;
 		default:
@@ -73,7 +96,11 @@
 		y = 0
 	}
 	
-	str = "Moving " + direction + ": new coordinates: x = " + x + ", y = " + y;
+	if (blocked == 1) {
+		str = "Moving " + direction + ": road is blocked, coordinates remain: x = " + x + ", y = " + y;
+	} else {
+		str = "Moving " + direction + ": new coordinates: x = " + x + ", y = " + y;
+	}
 	
 	return str;
   }
@@ -94,11 +121,11 @@
   
   QUnit.module('move', function() {
 	QUnit.test('foward', function(assert) {
-      		assert.equal(move("f"), "Moving foward: new coordinates: x = 1, y = 0");
+      assert.equal(move("f"), "Moving foward: new coordinates: x = 1, y = 0");
 	});
-
+	
 	QUnit.test('backward', function(assert) {
-      		assert.equal(move("b"), "Moving backward: new coordinates: x = 8, y = 0");
+      assert.equal(move("b"), "Moving backward: new coordinates: x = 0, y = 0");
 	});
    });
  </script>
