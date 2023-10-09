@@ -9,14 +9,14 @@
 </body>
 
 <script>
-  function fizzwas(n) {
+  function fizzbuzz(n) {
     output = "";
 	
 	if (div(n,3) || includes(n,'3')){
 		output += "fizz";
 	}
 	if(div(n,5) || includes(n,'5')) {
-		output += "was";
+		output += "buzz";
 	}
 	if (output == "") {
 		output = n;
@@ -39,59 +39,59 @@
 
   QUnit.module('fizzwas', function() {
     QUnit.test('egy', function(assert) {
-      assert.equal(fizzwas(1), "1");
+      assert.equal(fizzbuzz(1), "1");
     });
 	
 	QUnit.test('ketto', function(assert) {
-      assert.equal(fizzwas(2), "2");
+      assert.equal(fizzbuzz(2), "2");
     });
 	
 	QUnit.test('harom', function(assert) {
-      assert.equal(fizzwas(3), "fizz");
+      assert.equal(fizzbuzz(3), "fizz");
     });
 	
 	QUnit.test('negy', function(assert) {
-      assert.equal(fizzwas(4), "4");
+      assert.equal(fizzbuzz(4), "4");
     });
 	
 	QUnit.test('ot', function(assert) {
-      assert.equal(fizzwas(5), "was");
+      assert.equal(fizzbuzz(5), "was");
     });
 	
 	QUnit.test('tizenot', function(assert) {
-      assert.equal(fizzwas(15), "fizzwas");
+      assert.equal(fizzbuzz(15), "fizzwas");
     });
 	
 	QUnit.test('het', function(assert) {
-      assert.equal(fizzwas(6), "fizz");
+      assert.equal(fizzbuzz(6), "fizz");
     });
 	
 	QUnit.test('fizz, was or neither', function(assert) {
-      assert.equal(fizzwas(7), "7");
+      assert.equal(fizzbuzz(7), "7");
     });
 	
 	QUnit.test('fizz, was or neither', function(assert) {
-      assert.equal(fizzwas(10), "was");
+      assert.equal(fizzbuzz(10), "was");
     });
 	
 	QUnit.test('fizz, was or neither', function(assert) {
-      assert.equal(fizzwas(13), "fizz");
+      assert.equal(fizzbuzz(13), "fizz");
     });
 	
 	QUnit.test('fizz, was or neither', function(assert) {
-      assert.equal(fizzwas(52), "was");
+      assert.equal(fizzbuzz(52), "was");
     });
 	
 	QUnit.test('fizz, was or neither', function(assert) {
-      assert.equal(fizzwas(30), "fizzwas");
+      assert.equal(fizzbuzz(30), "fizzwas");
     });
 	
 	QUnit.test('fizz, was or neither', function(assert) {
-      assert.equal(fizzwas(35), "fizzwas");
+      assert.equal(fizzbuzz(35), "fizzwas");
     });
 	
 	QUnit.test('fizz, was or neither', function(assert) {
-      assert.equal(fizzwas(51), "fizzwas");
+      assert.equal(fizzbuzz(51), "fizzwas");
     });
   });
 </script>
