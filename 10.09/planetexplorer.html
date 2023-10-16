@@ -26,7 +26,7 @@
 			direction = "East";
 			break;
 		default:
-			direction = "No such directon, defaulted to North";
+			direction = "No such directon, default to North";
 	}
 	
 	str = "x = " + x + ", y = " + y + " starting position, direction: " + direction;
@@ -45,35 +45,34 @@
 	switch (A) {
 		case "f":
 			x = x + 1;
+			if (x == 9) {
+				x = 8;
+			}
 			direction = "foward";
 			break;
 		case "b":
 			x = x - 1;
+			if (x == -1) {
+				x = 8;
+			}
 			direction = "backward";
 			break;
 		case "l":
 			y = y + 1;
+			if (y == 9) {
+				y = 8
+			}
 			direction = "left";
 			break;
 		case "r":
 			y = y - 1;
+			if (y == -1) {
+				y = 8
+			}
 			direction = "right";
 			break;
 		default:
 			x = x + 1;
-	}
-	
-	if (x == -1) {
-		x = 8;
-	}
-	if (x == 9) {
-		x = 0;
-	}
-	if (y == -1) {
-		y = 8
-	}
-	if (y == 9) {
-		y = 0
 	}
 	
 	if (x == xB || y == yB) {
