@@ -54,18 +54,17 @@
 	
 	switch (A) {
 		case "f":
+			x = edgeconverter(x + 1);
 			if (x == xB) {
+				x = edgeconverter(x - 1);
 				blocked = 1;
 			}
 			direction = "foward";
 			break;
 		case "b":
-			x = x - 1;
-			if (x == -1) {
-				x = 8;
-			}
+			x = edgeconverter(x - 1);
 			if (x == xB) {
-				
+				x = edgeconverter(x + 1);
 				blocked = 1;
 			}
 			direction = "backward";
