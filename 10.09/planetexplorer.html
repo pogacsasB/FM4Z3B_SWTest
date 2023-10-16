@@ -35,18 +35,13 @@
   }
   
   function edgeconverter(n) {
-  	if (x == 9) {
-		x = 0;
+  	if (n == 9) {
+		n = 0;
 	}
-	if (x == -1) {
-		x = 8;
+	if (n == -1) {
+		n = 8;
 	}
-	if (y == 9) {
-		y = 0;
-	}
-	if (y == -1) {
-		y = 8;
-	}
+	return n;
   }
   
   function move(A) {
