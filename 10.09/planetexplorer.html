@@ -70,29 +70,23 @@
 			direction = "backward";
 			break;
 		case "l":
-			y = y + 1;
-			if (y == 9) {
-				y = 8
-			}
+			y = edgeconverter(y + 1);
 			if (y == yB) {
-				
+				y = edgeconverter(y - 1);
 				blocked = 1;
 			}
 			direction = "left";
 			break;
 		case "r":
-			y = y - 1;
-			if (y == -1) {
-				y = 8
-			}
+			y = edgeconverter(y - 1);
 			if (y == yB) {
-				
+				y = edgeconverter(y + 1);
 				blocked = 1;
 			}
 			direction = "right";
 			break;
 		default:
-			x = x + 1;
+			x = edgeconverter(x + 1);
 	}
 	
 	if (x == xB || y == yB) {
