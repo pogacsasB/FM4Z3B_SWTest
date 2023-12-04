@@ -54,6 +54,13 @@ function move(A) {
 
 	switch (A) {
 		case "f":
+			x = edgeconverter(x + 1);
+			if (x == xB) {
+				x = edgeconverter(x - 1);
+				blocked = 1;
+			}
+			direction = "foward";
+			break;
 		case "b":
 		case "l":
 		case "r":
