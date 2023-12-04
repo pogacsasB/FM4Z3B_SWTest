@@ -70,6 +70,13 @@ function move(A) {
 			direction = "backward";
 			break;
 		case "l":
+			y = edgeconverter(y + 1);
+			if (y == yB) {
+				y = edgeconverter(y - 1);
+				blocked = 1;
+			}
+			direction = "left";
+			break;
 		case "r":
 		default:
 	}
