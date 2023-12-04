@@ -42,5 +42,9 @@
 	QUnit.test('harom, tiz, Nyugat', function(assert) {
       assert.equal(position(3,10,"W"), "x = 3, y = 10 starting position, direction: West");
     });
+
+	QUnit.test('negy, kilenc, B', function(assert) {
+      assert.equal(position(4,9,"B"), "x = 4, y = 9 starting position, direction: No such directon, defaulted to North");
+    });
   });
 </script>
