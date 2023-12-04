@@ -92,6 +92,10 @@ function move(A) {
 	if (x == xB || y == yB) {
 		blocked = 1;
 	}
+
+	if (blocked != 0) {
+		str = "Moving " + direction + ": road is blocked, coordinates remain: x = " + x + ", y = " + y;
+	}
 		
 }
   
