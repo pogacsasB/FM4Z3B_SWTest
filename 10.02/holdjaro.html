@@ -78,7 +78,15 @@ function move(A) {
 			direction = "left";
 			break;
 		case "r":
+			y = edgeconverter(y - 1);
+			if (y == yB) {
+				y = edgeconverter(y + 1);
+				blocked = 1;
+			}
+			direction = "right";
+			break;
 		default:
+			x = edgeconverter(x + 1);
 	}
 		
 }
