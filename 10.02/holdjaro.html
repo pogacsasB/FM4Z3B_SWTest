@@ -35,16 +35,24 @@
   }
   
   QUnit.module('position', function() {
-    QUnit.test('egy, ketto, Eszak', function(assert) {
-      assert.equal(position(1,2,"N"), "x = 1, y = 2 starting position, direction: North");
-    });
+    	QUnit.test('egy, ketto, Eszak', function(assert) {
+      		assert.equal(position(1,2,"N"), "x = 1, y = 2 starting position, direction: North");
+    	});
 
 	QUnit.test('harom, tiz, Nyugat', function(assert) {
-      assert.equal(position(3,10,"W"), "x = 3, y = 10 starting position, direction: West");
-    });
+      		assert.equal(position(3,10,"W"), "x = 3, y = 10 starting position, direction: West");
+    	});
 
 	QUnit.test('negy, kilenc, B', function(assert) {
-      assert.equal(position(4,9,"B"), "x = 4, y = 9 starting position, direction: No such directon, defaulted to North");
-    });
+      		assert.equal(position(4,9,"B"), "x = 4, y = 9 starting position, direction: No such directon, defaulted to North");
+    	});
   });
+
+ QUnit.module('move', function() {
+ 	QUnit.test('foward', function(assert) {
+      		assert.equal(move("f"), "Moving foward: new coordinates: x = 1, y = 0");
+	});
+
+	 
+ });
 </script>
