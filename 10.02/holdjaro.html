@@ -88,6 +88,10 @@ function move(A) {
 		default:
 			x = edgeconverter(x + 1);
 	}
+
+	if (x == xB || y == yB) {
+		blocked = 1;
+	}
 		
 }
   
