@@ -95,8 +95,11 @@ function move(A) {
 
 	if (blocked != 0) {
 		str = "Moving " + direction + ": road is blocked, coordinates remain: x = " + x + ", y = " + y;
+	} else {
+		str = "Moving " + direction + ": new coordinates: x = " + x + ", y = " + y;
 	}
-		
+
+	return str;	
 }
   
   QUnit.module('position', function() {
