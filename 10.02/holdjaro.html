@@ -33,6 +33,25 @@
 	
 	return str;
   }
+
+function edgeconverter(n) {
+  	if (n == 9) {
+		n = 0;
+	}
+	if (n == -1) {
+		n = 8;
+	}
+	return n;
+  }
+
+function move(A) {
+	directon = "";
+	xB= 8;
+	yB= 0;
+	blocked = 0;
+	x=0;
+	y=0;
+}
   
   QUnit.module('position', function() {
     	QUnit.test('egy, ketto, Eszak', function(assert) {
